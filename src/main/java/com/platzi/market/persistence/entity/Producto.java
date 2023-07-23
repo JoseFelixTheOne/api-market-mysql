@@ -9,6 +9,7 @@ import lombok.Data;
 public class Producto {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id_producto")
     private Integer idProducto;
 
@@ -28,7 +29,7 @@ public class Producto {
 
     private Boolean estado;
 
-    @ManyToMany
+    @ManyToOne
     @JoinColumn(name = "id_categoria", insertable = false, updatable = false)
     private Categoria categoria;
 }
