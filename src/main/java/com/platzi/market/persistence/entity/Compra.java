@@ -9,8 +9,9 @@ import java.util.List;
 @Entity
 @Table(name="compras")
 @Data
-public class Compra {
+public class  Compra {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_compra")
     private Integer idCompra;
 
@@ -30,6 +31,6 @@ public class Compra {
     @JoinColumn(name = "id_cliente", insertable = false, updatable = false)
     private Cliente cliente;
 
-    @OneToMany(mappedBy = "compra")
+    @OneToMany(mappedBy = "compra", cascade = {CascadeType.ALL})
     private List<ComprasProducto> productos;
 }

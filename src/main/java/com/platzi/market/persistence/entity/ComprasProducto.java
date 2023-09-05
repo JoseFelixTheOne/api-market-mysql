@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 @Entity
-@Table(name="compras_producto")
+@Table(name="compras_productos")
 @Data
 public class ComprasProducto {
     @EmbeddedId
@@ -15,6 +15,7 @@ public class ComprasProducto {
     private Boolean estado;
 
     @ManyToOne
+    @MapsId("idCompra")
     @JoinColumn(name = "id_compra", insertable = false, updatable = false)
     private Compra compra;
 
